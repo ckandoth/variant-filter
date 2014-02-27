@@ -65,8 +65,3 @@ Authors
     Cyriac Kandoth (ckandoth@gmail.com)
     Dan Koboldt, Analysis Manager, Human Genetics Group, The Genome Institute
     David Larson, Director of Bioinformatics, The Genome Institute
-
-License
--------
-
-    LGPLv3, Memorial Sloan-Kettering Cancer Center, New York, NY 10065, USA
