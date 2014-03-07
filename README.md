@@ -8,8 +8,8 @@ Quick start
 
 Download the `fpfilter.pl` script, and view the detailed usage manual:
 
-    curl -LO https://raw.github.com/ckandoth/variant-filter/master/fpfilter.pl
-    perl fpfilter.pl --help
+    curl -LO https://github.com/ckandoth/variant-filter/archive/master.zip; unzip master.zip
+    perl variant-filter-master/fpfilter.pl --help
 
 Given `snvs.vcf` a single sample VCF listing SNVs, generate a list of variant loci in a subfolder:
 
