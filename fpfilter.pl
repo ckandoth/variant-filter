@@ -254,22 +254,22 @@ while( my $line = $input_fh->getline ) {
 
                 ## SUCCESS: Passes all filters above ##
                 else {
-                    $line .= "\tPASS\t.\n";
+                    $line .= "\tPASS\t\n";
                     $stats{'num_pass_filter'}++;
                 }
             }
             else {
-                $line .= "\tNoVariantReads\t.\n";
+                $line .= "\tNoVariantReads\t\n";
                 $stats{'num_no_readcounts'}++;
             }
         }
         else {
-            $line = "$chrom\t$position\t$ref\t$var\t0\t0\t0\tNoReadCounts\t.\n";
+            $line = "$chrom\t$position\t$ref\t$var\t0\t0\t0\tNoReadCounts\t\n";
             $stats{'num_no_readcounts'}++;
         }
     }
     else {
-        $line = "$chrom\t$position\t$ref\t$var\t0\t0\t0\tNoReadCounts\t.\n";
+        $line = "$chrom\t$position\t$ref\t$var\t0\t0\t0\tNoReadCounts\t\n";
         $stats{'num_no_readcounts'}++;
     }
 
