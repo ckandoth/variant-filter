@@ -16,7 +16,7 @@ Given `snvs.vcf` a single sample VCF listing SNVs, generate a list of variant lo
     mkdir fpfilter
     perl -ane 'print join("\t",@F[0,1,1])."\n" unless(m/^#/)' snvs.vcf > fpfilter/snvs.var
 
-Given `tumor.bam`, a BAM file containing the SNVs, and its reference FASTA `grch37.fa`, run bam-readcount:
+Given `tumor.bam`, a BAM file containing the SNVs, and its reference FASTA `grch37.fa`, run [bam-readcount](https://gist.github.com/ckandoth/87ba44948cb747916f8d#file-build_bam_readcount-txt):
 
     bam-readcount -q1 -b15 -w1 -l fpfilter/snvs.var -f grch37.fa tumor.bam > fpfilter/snvs.readcount
 
@@ -25,34 +25,6 @@ Run the `fpfilter.pl` script using the readcounts as an input:
     perl fpfilter.pl --var-file snvs.vcf --readcount-file fpfilter/snvs.readcount --output-file fpfilter/snvs.fpfilter
 
 The last two columns of the resulting file `snvs.fpfilter` contains a VCF friendly `FILTER` code, and an extra column with details.
-
-Install bam-readcount
----------------------
-
-First, we need to install some dependencies. For Debian or Ubuntu, do the following:
-
-    sudo apt-get install build-essential git-core cmake zlib1g-dev libncurses-dev
-
-For Fedora, CentOS6, or RHEL6, do the following instead:
-
-    sudo yum groupinstall "Development tools"
-    sudo yum install zlib-devel ncurses-devel cmake
-
-Clone the bam-readcount repository, and recursively clone submodules:
-
-    git clone --recursive https://github.com/genome/bam-readcount.git
-
-In-source builds are not supported, so create a subfolder named build, and build the source in there:
-
-    mkdir bam-readcount/build
-    cd bam-readcount/build
-    cmake ../
-    make deps
-    make
-
-Install the `bam-readcount` binary to `/usr/bin`, or move it where your `$PATH` can find it:
-
-    sudo make install
 
 Provenance
 ----------
